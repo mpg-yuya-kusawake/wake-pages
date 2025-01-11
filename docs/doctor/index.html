@@ -18,7 +18,25 @@
     </style>
   </head>
   <body>
-    <redoc spec-url='../app/controllers/doctor/spec.yml'></redoc>
+    <div style="font-size: 0.75rem;">
+      <label for="url">URL(spec.yml)</label>
+      <input type="text" id="spec_url" name="spec_url" size="35" placeholder="https://raw.githubusercontent.com/..."/>
+      <input type="button" id="btn" value="Load" />
+    </div>
+    <div id="redoc-container">
+      <redoc spec-url='../app/controllers/doctor/spec.yml'></redoc>
+    </div>
+
     <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"> </script>
+    <script>
+      function load() {
+        const url = document.getElementById('spec_url').value;
+        if (url) {
+          Redoc.init(url);
+        }
+      }
+      const btn = document.getElementById('btn');
+      btn.addEventListener("click", load);
+    </script>
   </body>
 </html>
