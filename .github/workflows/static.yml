@@ -40,7 +40,7 @@ jobs:
       - name: Copy spec.yml
         run: rsync -R app/controllers/**/*spec.yml docs/
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: 'docs/'
       - name: Deploy to GitHub Pages
